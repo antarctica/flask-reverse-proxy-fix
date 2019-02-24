@@ -30,8 +30,6 @@ variables:
   APP_NAME: flask-middleware-reverse-proxy
   SNYK_ORG: antarctica
   SNYK_PROJECT: flask-middleware-reverse-proxy
-  PYPI_REPOSITORY_URL: https://pypi.org/
-  PYPI_TEST_REPOSITORY_URL: https://test.pypi.org/legacy/
   PYPI_USERNAME: british-antarctic-survey
   PYPI_TEST_USERNAME: british-antarctic-survey
 
@@ -93,7 +91,7 @@ build-app:
 publish-app-prod:
   stage: publish
   script:
-    - "python -m twine upload --repository-url $PYPI_REPOSITORY_URL --username $PYPI_USERNAME --password $PYPI_PASSWORD --disable-progress-bar --verbose dist/*"
+    - "python -m twine upload --username $PYPI_USERNAME --password $PYPI_PASSWORD --disable-progress-bar --verbose dist/*"
   only:
     - tags
   environment:
