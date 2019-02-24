@@ -1,4 +1,4 @@
-import os
+import os  # noqa: F401
 
 from setuptools import setup, find_packages
 
@@ -7,7 +7,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name="flask-reverse-proxy-fix",
-    version=f"0.1.0.dev{ os.getenv('CI_PIPELINE_ID') or '' }",
+    version=f"0.1.0",
     author="British Antarctic Survey",
     author_email="webapps@bas.ac.uk",
     description="Python Flask middleware for applications running under a reverse proxy",
