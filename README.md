@@ -235,8 +235,8 @@ To publish manually to [PyPi](https://pypi.org):
 
 ```shell
 $ docker-compose run app ash
-$ python -m twine upload --repository-url https://test.pypi.org/legacy/ dist/*
-# project then available at: https://test.pypi.org/project/flask-reverse-proxy-fix/
+$ python -m twine upload --repository-url https://pypi.org/legacy/ dist/*
+# project then available at: https://pypi.org/project/flask-reverse-proxy-fix/
 $ exit
 $ docker-compose down
 ```

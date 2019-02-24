@@ -86,6 +86,9 @@ publish-app-stage:
     - "python -m twine upload --repository-url $PYPI_TEST_REPOSITORY_URL --username $PYPI_TEST_USERNAME --password $PYPI_TEST_PASSWORD --disable-progress-bar --verbose dist/*"
   only:
     - master
+  environment:
+    name: staging
+    url: https://test.pypi.org/project/flask-reverse-proxy-fix/
 
 publish-app-prod:
   stage: publish
@@ -93,3 +96,6 @@ publish-app-prod:
     - "python -m twine upload --repository-url $PYPI_REPOSITORY_URL --username $PYPI_USERNAME --password $PYPI_PASSWORD --disable-progress-bar --verbose dist/*"
   only:
     - tags
+  environment:
+    name: production
+    url: https://pypi.org/project/flask-reverse-proxy-fix/
