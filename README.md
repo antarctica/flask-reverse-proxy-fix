@@ -257,7 +257,8 @@ This process will deploy changes to [PyPi](https://pypi.org) on all tagged commi
 ### At release
 
 1. create a `release` branch
-2. remove `.dev` from the version parameter in `setup.py` and ensure version is bumped as per semver
+2. remove `.dev{ os.getenv('CI_PIPELINE_ID') or None }` from the version parameter in `setup.py` and ensure version 
+   is bumped as per semver
 3. close release in `CHANGELOG.md`
 4. push changes, merge the `release` branch into `master` and tag with version
 
@@ -266,7 +267,8 @@ The project will be built and published to PyPi automatically through [Continuou
 ### After release
 
 1. create a `next-release` branch
-2. bump the version parameter in `setup.py` and append `.dev` to signify a pre-release
+2. bump the version parameter in `setup.py` and append `.dev{ os.getenv('CI_PIPELINE_ID') or None }` to signify a     
+  pre-release
 3. push changes and merge the `next-release` branch into `master`
 
 ## Feedback

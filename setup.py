@@ -1,3 +1,5 @@
+import os
+
 from setuptools import setup, find_packages
 
 with open("README.md", "r") as fh:
@@ -5,7 +7,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name="flask-reverse-proxy-fix",
-    version="0.1.0.dev",
+    version=f"0.1.0.dev{ os.getenv('CI_BUILD_REF_SHORT') or None }",
     author="British Antarctic Survey",
     author_email="webapps@bas.ac.uk",
     description="Python Flask middleware for applications running under a reverse proxy",
