@@ -70,7 +70,7 @@ bandit-app:
   script:
     - "bandit -r ."
 
-test-app:
+build-app:
   stage: build
   script:
     - "python setup.py sdist bdist_wheel"
@@ -80,14 +80,14 @@ test-app:
       - dist
     expire_in: 1 month
 
-publish-app-staging:
+publish-app-stage:
   stage: publish
   script:
     - "python -m twine upload --repository-url $PYPI_TEST_REPOSITORY_URL --username $PYPI_TEST_USERNAME --password $PYPI_TEST_PASSWORD dist/*"
   only:
     - master
 
-publish-app-staging:
+publish-app-prod:
   stage: publish
   script:
     - "python -m twine upload --repository-url $PYPI_REPOSITORY_URL --username $PYPI_USERNAME --password $PYPI_PASSWORD dist/*"
