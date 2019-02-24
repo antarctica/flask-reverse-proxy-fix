@@ -30,7 +30,7 @@ variables:
   APP_NAME: flask-middleware-reverse-proxy
   SNYK_ORG: antarctica
   SNYK_PROJECT: flask-middleware-reverse-proxy
-  PYPI_REPOSITORY_URL: https://pypi.org/legacy/
+  PYPI_REPOSITORY_URL: https://pypi.org/
   PYPI_TEST_REPOSITORY_URL: https://test.pypi.org/legacy/
   PYPI_USERNAME: british-antarctic-survey
   PYPI_TEST_USERNAME: british-antarctic-survey
