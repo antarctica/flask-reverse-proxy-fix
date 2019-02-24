@@ -83,13 +83,13 @@ build-app:
 publish-app-stage:
   stage: publish
   script:
-    - "python -m twine upload --repository-url $PYPI_TEST_REPOSITORY_URL --username $PYPI_TEST_USERNAME --password $PYPI_TEST_PASSWORD dist/*"
+    - "python -m twine upload --repository-url $PYPI_TEST_REPOSITORY_URL --username $PYPI_TEST_USERNAME --password $PYPI_TEST_PASSWORD --disable-progress-bar --verbose dist/*"
   only:
     - master
 
 publish-app-prod:
   stage: publish
   script:
-    - "python -m twine upload --repository-url $PYPI_REPOSITORY_URL --username $PYPI_USERNAME --password $PYPI_PASSWORD dist/*"
+    - "python -m twine upload --repository-url $PYPI_REPOSITORY_URL --username $PYPI_USERNAME --password $PYPI_PASSWORD --disable-progress-bar --verbose dist/*"
   only:
     - tags
