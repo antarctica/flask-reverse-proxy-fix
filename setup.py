@@ -7,7 +7,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name="flask-reverse-proxy-fix",
-    version=f"0.1.1",
+    version=f"0.2.0.dev{ os.getenv('CI_PIPELINE_ID') or None }",
     author="British Antarctic Survey",
     author_email="webapps@bas.ac.uk",
     description="Python Flask middleware for applications running under a reverse proxy",
