@@ -48,7 +48,7 @@ from flask_reverse_proxy_fix.middleware import ReverseProxyPrefixFix
 
 app = Flask(__name__)
 
-app.config['REVERSE_PROXY_PATH_PREFIX'] = '/foo'
+app.config['REVERSE_PROXY_PATH'] = '/foo'
 ReverseProxyPrefixFix(app)
 
 @app.route('/')

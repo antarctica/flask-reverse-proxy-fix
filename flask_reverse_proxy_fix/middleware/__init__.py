@@ -36,7 +36,10 @@ class ReverseProxyPrefixFix(object):
         :param app: Flask application
         """
         self.app = app.wsgi_app
-        self.prefix = app.config['REVERSE_PROXY_PATH']
+        self.prefix = None
+        
+        if 'REVERSE_PROXY_PATH' in app.config:
+            self.prefix = app.config['REVERSE_PROXY_PATH']
 
         self.app = ProxyFix(self.app)
 

@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Fixed
+
+* Correcting documentation for `REVERSE_PROXY_PATH` config option
+* Guarding against missing `REVERSE_PROXY_PATH` config option
+
 ## [0.2.0] - 2019-03-02
 
 ### Changed
