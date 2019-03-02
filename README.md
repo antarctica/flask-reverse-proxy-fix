@@ -41,7 +41,7 @@ or taken from a Flask config object for example. The middleware returns a wrappe
  
 **Note:** Ensure the prefix value includes a preceding slash, but not a trailing slash (i.e. use `/foo` not `/foo/`).
 
-A minimal application would like this:
+A minimal application would look like this:
 
 ```python
 from flask import Flask, url_for
@@ -50,8 +50,8 @@ from flask_reverse_proxy_fix.middleware import ReverseProxyPrefixFix
 
 
 app = Flask(__name__)
-app.config['REVERSE_PROXY_PATH_PREFIX'] = '/foo'
 
+app.config['REVERSE_PROXY_PATH_PREFIX'] = '/foo'
 app.wsgi_app = ProxyFix(app.wsgi_app)
 app.wsgi_app = ReverseProxyPrefixFix(app.wsgi_app, app.config['REVERSE_PROXY_PATH_PREFIX'])
 
