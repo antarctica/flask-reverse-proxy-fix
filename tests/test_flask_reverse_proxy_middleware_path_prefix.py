@@ -1,9 +1,6 @@
 import unittest
 from http import HTTPStatus
 
-# noinspection PyPackageRequirements
-from werkzeug.contrib.fixers import ProxyFix
-
 from flask_reverse_proxy_fix.middleware import ReverseProxyPrefixFix
 from app import create_app_with_middleware, create_app_without_middleware
 
@@ -22,8 +19,7 @@ class FlaskReverseProxyMiddlewarePathPrefixTestCase(unittest.TestCase):
         self.client = self.app.test_client()
 
         self.app.config['REVERSE_PROXY_PATH'] = '/foo'
-        self.app.wsgi_app = ProxyFix(self.app.wsgi_app)
-        self.app.wsgi_app = ReverseProxyPrefixFix(self.app.wsgi_app, self.app.config['REVERSE_PROXY_PATH'])
+        ReverseProxyPrefixFix(self.app)
 
         expected_url = 'http://localhost:9000/test/sample'
 
