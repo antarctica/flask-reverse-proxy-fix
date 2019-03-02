@@ -61,7 +61,7 @@ dependencies-app:
 pep8-app:
   stage: lint
   script:
-    - "flake8 . --ignore=E501 --exclude discovery,migrations"
+    - "flake8 . --ignore=E501"
 
 bandit-app:
   stage: lint
