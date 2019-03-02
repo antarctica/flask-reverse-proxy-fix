@@ -5,9 +5,15 @@ from setuptools import setup, find_packages
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
+version = '0.2.0'
+
+# If a tagged commit, don't make a pre-release
+if 'CI_COMMIT_TAG' not in os.environ:
+    version = f"{ version }.dev{ os.getenv('CI_PIPELINE_ID') or None }"
+
 setup(
     name="flask-reverse-proxy-fix",
-    version=f"0.2.0.dev{ os.getenv('CI_PIPELINE_ID') or None }",
+    version=version,
     author="British Antarctic Survey",
     author_email="webapps@bas.ac.uk",
     description="Python Flask middleware for applications running under a reverse proxy",
