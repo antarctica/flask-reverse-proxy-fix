@@ -22,7 +22,7 @@ class ReverseProxyPrefixFix(object):
     This middleware is compatible with both relative and absolute URLs (i.e. `Flask.url_for('.foo')` and
     `Flask.url_for('.foo', _external=True)`.
 
-    This middleware incorporates the `werkzeug.contrib.fixers.ProxyFix` middleware [1] and is based on the 
+    This middleware incorporates the `werkzeug.contrib.fixers.ProxyFix` middleware [1] and is based on the
     'Fixing SCRIPT_NAME/url_scheme when behind reverse proxy' Flask snippet [2].
 
     Note: Ensure the prefix value includes a preceding slash, but not a trailing slash (i.e. use `/foo` not `/foo/`).
