@@ -20,10 +20,9 @@ a client.
 This middleware is compatible with both relative and absolute URLs (i.e. `Flask.url_for('.foo')` and 
 `Flask.url_for('.foo', _external=True)`.
 
-This middleware is safe to use alongside other middleware such as 
-[`werkzeug.contrib.fixers.ProxyFix`](http://werkzeug.pocoo.org/docs/0.14/contrib/fixers/#werkzeug.contrib.fixers.ProxyFix).
-
-This middleware is based on the 
+This middleware incorporates the 
+[`werkzeug.contrib.fixers.ProxyFix`](http://werkzeug.pocoo.org/docs/0.14/contrib/fixers/#werkzeug.contrib.fixers.ProxyFix) 
+and based on the 
 [Fixing SCRIPT_NAME/url_scheme when behind reverse proxy](http://flask.pocoo.org/snippets/35/) Flask snippet.
 
 ## Installation
@@ -36,24 +35,21 @@ $ pip install flask-reverse-proxy-fix
 
 ## Usage
 
-This middleware requires two parameters, a WSGI application object and a path prefix value. This could be set directly 
-or taken from a Flask config object for example. The middleware returns a wrapped/modified WSGI application object.
+This middleware requires one parameter, a Flask config option, `REVERSE_PROXY_PATH_PREFIX`, for the path prefix value.
  
-**Note:** Ensure the prefix value includes a preceding slash, but not a trailing slash (i.e. use `/foo` not `/foo/`).
+**Note:** The prefix value **SHOULD** include a preceding slash, it **SHOULD NOT** include a trailing slash (i.e. use 
+`/foo` not `/foo/`).
 
 A minimal application would look like this:
 
 ```python
 from flask import Flask, url_for
-from werkzeug.contrib.fixers import ProxyFix
 from flask_reverse_proxy_fix.middleware import ReverseProxyPrefixFix
-
 
 app = Flask(__name__)
 
 app.config['REVERSE_PROXY_PATH_PREFIX'] = '/foo'
-app.wsgi_app = ProxyFix(app.wsgi_app)
-app.wsgi_app = ReverseProxyPrefixFix(app.wsgi_app, app.config['REVERSE_PROXY_PATH_PREFIX'])
+ReverseProxyPrefixFix(app)
 
 @app.route('/')
 def hello_world():

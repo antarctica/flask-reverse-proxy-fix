@@ -2,8 +2,6 @@ import os
 import unittest
 
 from flask import Flask, jsonify, url_for
-# noinspection PyPackageRequirements
-from werkzeug.contrib.fixers import ProxyFix
 from flask_reverse_proxy_fix.middleware import ReverseProxyPrefixFix
 
 
@@ -12,8 +10,7 @@ def create_app_with_middleware():
 
     # Configure and load Middleware
     _app.config['REVERSE_PROXY_PATH'] = '/test'
-    _app.wsgi_app = ProxyFix(_app.wsgi_app)
-    _app.wsgi_app = ReverseProxyPrefixFix(_app.wsgi_app, _app.config['REVERSE_PROXY_PATH'])
+    ReverseProxyPrefixFix(_app)
 
     @_app.route("/sample")
     def sample():
