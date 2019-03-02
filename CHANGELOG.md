@@ -7,8 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.2.0] - 2019-03-02
+
 ### Changed
 
+* Wrapping around Flask app rather than a WSGI app
+* Incorporating `werkzeug.contrib.fixers.ProxyFix` middleware
 * Improved handling of pre-release versions in `setup.py` when running in CI/CD
 
 ## [0.1.1] - 2019-03-01
