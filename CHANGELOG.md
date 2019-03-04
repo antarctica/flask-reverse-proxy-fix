@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Fixed
 
-* Refactored `app.py` to prevent creating an application on import
+* Refactored `app.py` into `app.py` and `manage.py` to prevent running an application on import
 * Improved versioning support in `setup.py`
 
 ## [0.2.1] - 2019-03-02
