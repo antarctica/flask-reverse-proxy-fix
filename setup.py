@@ -1,4 +1,4 @@
-import os  # noqa: F401
+import os
 
 from setuptools import setup, find_packages
 
