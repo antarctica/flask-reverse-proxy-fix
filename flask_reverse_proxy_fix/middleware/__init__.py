@@ -1,6 +1,9 @@
 from flask import Flask as App
 # noinspection PyPackageRequirements
-from werkzeug.contrib.fixers import ProxyFix
+try:
+    from werkzeug.contrib.fixers import ProxyFix
+except ModuleNotFoundError:
+    from werkzeug.middleware.proxy_fix import ProxyFix
 
 
 class ReverseProxyPrefixFix(object):
