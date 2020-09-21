@@ -30,7 +30,7 @@ class ReverseProxyPrefixFix(object):
     [1] http://werkzeug.pocoo.org/docs/0.14/contrib/fixers/#werkzeug.contrib.fixers.ProxyFix
     [2] http://flask.pocoo.org/snippets/35/
     """
-    def __init__(self, app: App):
+    def __init__(self, app: App, **kwargs):
         """
         :type app: App
         :param app: Flask application
@@ -41,7 +41,7 @@ class ReverseProxyPrefixFix(object):
         if 'REVERSE_PROXY_PATH' in app.config:
             self.prefix = app.config['REVERSE_PROXY_PATH']
 
-        self.app = ProxyFix(self.app)
+        self.app = ProxyFix(self.app, **kwargs)
 
         app.wsgi_app = self
 
