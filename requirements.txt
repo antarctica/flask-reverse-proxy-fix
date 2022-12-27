@@ -1,6 +1,6 @@
 bandit==1.5.1
 flake8==3.6.0
 Flask==1.0.2
-setuptools==40.8.0
+setuptools==65.5.1
 twine==1.13.0
 wheel==0.33.1
